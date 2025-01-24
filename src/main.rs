@@ -34,6 +34,7 @@ async fn main() {
             println!("Location: {:?}", info.location);
             println!("Region: {:?}", info.region);
             println!("Timezone: {:?}", info.timezone);
+            println!("Timezone: {:?}", info.city);
         } else {
             println!("Couldn't find geolocation information for IP: {:?}", ip_str);
         }
