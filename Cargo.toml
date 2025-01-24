@@ -1,0 +1,11 @@
+[package]
+name = "locateme"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+local-ip-address = "0.6.3"
+netif = "0.1.6"
+public-ip = "0.2.2"
+tokio = { version = "1", features = ["full"] }
+geolocation = "0.2.1"
