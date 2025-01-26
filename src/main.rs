@@ -44,7 +44,7 @@ async fn main() {
             let lng: f64 = info.longitude.parse().expect("Invalid longitude");
 
             // Get bounding box with 2km radius
-            let bbox = lat_lng_to_bbox(lat, lng, 2.0);
+            let bbox = lat_lng_to_bbox(lat, lng, 6.0);
 
             // Destructure the bounding box
             let (south, west, north, east) = bbox;
@@ -59,17 +59,17 @@ async fn main() {
             let overpass_query = format!(
                 "[out:json];
         (
-            node({},{},{},{});
-            way({},{},{},{});
-            relation({},{},{},{});
+            node[amenity=cafe]({},{},{},{});
+            way[amenity=cafe]({},{},{},{});
+            relation[amenity=cafe]({},{},{},{});
         );
-        out body;
-        >>;
-        out skel qt;",
+        out center;",
                 south, west, north, east,
                 south, west, north, east,
                 south, west, north, east
             );
+
+            println!("{}", overpass_query)
         } else {
             println!("Couldn't find geolocation information for IP: {:?}", ip_str);
         }
